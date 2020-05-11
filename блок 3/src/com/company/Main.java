@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -33,7 +34,7 @@ public class Main {
         return k;
     }
     public static int task2(String str){
-         int count = 0;
+        int count = 0;
         int index = 0;
         for(int i = 0; i<str.length()-2;i++){
             if ((str.charAt(i) == 'z') && (str.charAt(i+1) == 'i') && (str.charAt(i+2) == 'p')){
@@ -129,8 +130,32 @@ public class Main {
         return left + right==n;
     }
 
-    public static int task8(String str){
-        
+    public static String task8(String str) {
+        String [] parts = str.split("1" );
+        Arrays.sort(parts);
+        return parts[parts.length-1];
+    }
+
+    public static int task9(int a) {
+        int temp = 0;
+        int num = a;
+        boolean flag = false;
+        for (int i = 2; i <= num/2; i++){
+            temp=num%i;
+            if (temp == 0){
+                flag=false;
+                num++;
+            }
+            else {flag=true;}
+        }
+    return num;
+    }
+
+    public static boolean task10(int a,int b,int c){
+        if(Math.pow(a,2)+Math.pow(b,2)==Math.pow(c,2)){return true;}
+        if(Math.pow(a,2)+Math.pow(c,2)==Math.pow(b,2)){return true;}
+        if(Math.pow(b,2)+Math.pow(c,2)==Math.pow(a,2)){return true;}
+    return false;
     }
 
     public static void main(String[] args) {
@@ -190,16 +215,22 @@ public class Main {
                     System.out.println("Результат: " + task7(n));
                     break;
                 case(8):
-
+                    System.out.println("Введите двоичный код: ");
+                    String str5=inputStr();
+                    System.out.println("Результат: " + task8(str5));
                     break;
                 case(9):
-
+                    System.out.println("Введите число: ");
+                    int q=inputInt();
+                    System.out.println("Результат: " + task9(q));
                     break;
                 case(10):
-
+                    System.out.println("Введите стороны треугольника: ");
+                    int a1=inputInt(), b1=inputInt(), c1=inputInt();
+                    System.out.println("Результат: " + task10(a1,b1,c1));
                     break;
                 case(11):
-
+                    System.out.println("До свидания!");
                     break;
             }
         } while (key!=11);
